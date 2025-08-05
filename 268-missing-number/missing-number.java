@@ -1,15 +1,11 @@
 class Solution {
     public int missingNumber(int[] nums) {
-        for(int i = 0; i < nums.length; i++){
-            boolean flag = false;
-            for(int j = 0; j < nums.length; j++){
-                if(nums[j] == i){
-                    flag = true;
-                    break;
-                }
-            }
-            if(flag == false) return i;
+        int n = nums.length;
+        int rsum = n*(n+1)/2;
+        int sum = 0;
+        for(int i = 0; i < n; i++){
+            sum+=nums[i];
         }
-        return nums.length;
+        return rsum-sum;
     }
 }
