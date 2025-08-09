@@ -3,7 +3,7 @@ class Solution {
         
         int c = 0;
         int n = heights.length;
-        int[] sortHeig = Arrays.copyOf(heights, n);;
+        int[] sortHeig = heights.clone();
         // for(int i = 0; i < n; i++){
         //     sortHeig[i] = heights[i];
         // }
