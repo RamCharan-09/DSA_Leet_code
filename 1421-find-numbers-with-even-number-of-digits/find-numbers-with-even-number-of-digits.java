@@ -2,12 +2,10 @@ class Solution {
     public int findNumbers(int[] nums) {
         int c = 0;
         for(int i = 0; i < nums.length; i++){
-            int j =0;
+           
             int t = nums[i];
-            while(t > 0){
-                t = t/10;
-                j++;
-            }
+            // to count number of digits easy trick
+            int j = (int) (Math.log10(nums[i]))+1;
             if(j%2 == 0) c++;
         }
         return c;
