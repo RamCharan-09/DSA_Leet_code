@@ -18,8 +18,8 @@ class Solution {
             }
         }
 
-        for(i = 0; i < n; i++){
-            if(nums[i] != i) return i;
+        for(int j = 0; j < n; j++){
+            if(nums[j] != j) return j;
         }
         return n;
     }
