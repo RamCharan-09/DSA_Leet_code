@@ -1,0 +1,24 @@
+class Solution {
+    private long computeSteps(long l, long r) {
+        long c = 0;
+        long low = 1;
+        for (int k = 1; ; k++) {
+            if (low > r) break;
+            long high = low * 4 - 1;
+            long left = Math.max(l, low);
+            long right = Math.min(r, high);
+            if (left <= right) c += (right - left + 1) * k;
+            low *= 4;
+        }
+        return c;
+    }
+
+    public long minOperations(int[][] queries) {
+        long ans = 0;
+        for (int[] q : queries) {
+            long ops = computeSteps(q[0], q[1]);
+            ans += (ops + 1) / 2;
+        }
+        return ans;
+    }
+}
