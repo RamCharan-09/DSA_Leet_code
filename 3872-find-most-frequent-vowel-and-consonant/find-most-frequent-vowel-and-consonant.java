@@ -7,9 +7,10 @@ class Solution {
 
         for(int i = 0; i < s.length(); i++){
             char ch = s.charAt(i);
-            if(set1.contains(ch)){
-                mp1.put(ch, mp1.getOrDefault(ch,0)+1);
-            }else{
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+            	mp1.put(ch, mp1.getOrDefault(ch, 0)+1);
+			}
+            else{
                 mp2.put(ch, mp2.getOrDefault(ch,0)+1);
             }
         }
