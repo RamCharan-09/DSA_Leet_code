@@ -10,9 +10,9 @@ class Solution {
         int res = 0;
         for (int count : arr) {
             if (count == max) {
-                res++; 
+                res+=max; 
             }
         }
-        return res*max; 
+        return res; 
     }
 }
