@@ -10,19 +10,19 @@
  */
 class Solution {
     public ListNode sortList(ListNode head) {
-    if (head == null || head.next == null) {
-        return head;
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode midPrev = middleNode(head);
+        ListNode mid = midPrev.next;
+        midPrev.next = null; // Break the list
+
+        ListNode left = sortList(head);
+        ListNode right = sortList(mid);
+
+        return mergeTwoLists(left, right);
     }
-
-    ListNode midPrev = middleNode(head);
-    ListNode mid = midPrev.next;
-    midPrev.next = null; // Break the list
-
-    ListNode left = sortList(head);
-    ListNode right = sortList(mid);
-
-    return mergeTwoLists(left, right);
-}
 
 // q21 merge two sorted lists 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
