@@ -1,23 +1,20 @@
 class Solution {
     public int maxDistinctElements(int[] nums, int k) {
-        List<Integer> l = new LinkedList<>();
+        if (nums.length <= (k << 1) + 1) return nums.length;
+        
         Arrays.sort(nums);
+        int count = 0;        // number of distinct elements
+        int curr = Integer.MIN_VALUE; // last chosen value
 
-        l.add(nums[0] - k);
-
-        for(int i = 1; i < nums.length; i++){
-            int n = nums[i];
-            int last = l.getLast();
-
-            if(n - k > last){
-                l.add(n - k);
-            }else{
-                int next = last + 1;
-                if(next <= n + k){
-                    l.add(last + 1);
-                }
+        for (int i = 0; i < nums.length; i++) {
+            int start = Math.max(curr + 1, nums[i] - k); // smallest value we can pick
+            int end = nums[i] + k;                       // largest value we can pick
+            
+            if (start <= end) {
+                count++;      // we can assign a new distinct number
+                curr = start; // move to next available number
             }
         }
-        return l.size();
+        return count;
     }
 }
