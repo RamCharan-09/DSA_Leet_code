@@ -1,10 +1,8 @@
 class Solution {
     public int smallestNumber(int n) {
-        int x = 1;
-        while(x < n){
-            x = (x<<1) | 1;
-        }
-
-        return x;
+        String a=Integer.toBinaryString(n);
+        int len=a.length();
+        int power= (int)Math.pow(2,len);
+        return power-1;
     }
 }
